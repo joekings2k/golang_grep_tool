@@ -39,8 +39,10 @@ func collectFiles(path []string) []string {
 				log.Printf("Error walking directory %s: %v\n", p, err)
 				continue
 			}
+		} else {
+			files = append(files, p)
 		}
-		files = append(files, p)
+
 	}
 	return files
 }
