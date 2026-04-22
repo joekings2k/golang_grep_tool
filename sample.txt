@@ -1,0 +1,10 @@
+This is a simple log file.
+Everything is working fine.
+User logged in successfully.
+Error: failed to connect to database.
+Retrying connection...
+Connection established.
+Warning: low disk space.
+User logged out.
+Error: timeout while reading response.
+System shutting down.

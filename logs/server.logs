@@ -1,0 +1,13 @@
+[INFO] Starting server on port 8080
+[INFO] Connected to database
+[DEBUG] Initializing cache layer
+[WARNING] Disk usage at 85%
+[ERROR] Failed to load configuration file
+[INFO] Retrying configuration load
+[INFO] Configuration loaded successfully
+[ERROR] Timeout while connecting to external API
+[DEBUG] Response payload received
+[INFO] User login successful
+[WARNING] High memory usage detected
+[ERROR] Invalid API key provided
+[INFO] Server shutting down
