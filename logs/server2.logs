@@ -1,0 +1,14 @@
+[INFO] Starting background worker on port 9090
+[INFO] Database connection established
+[DEBUG] Loading environment variables
+[WARNING] CPU usage at 78%
+[ERROR] Unable to parse environment configuration
+[INFO] Attempting to reload configuration
+[INFO] Configuration reloaded successfully
+[ERROR] Failed to reach authentication service
+[DEBUG] Processing incoming request
+[INFO] New user registered
+[WARNING] Disk I/O latency is high
+[ERROR] Session token expired
+[INFO] Cleaning up temporary files
+[INFO] Worker shutting down

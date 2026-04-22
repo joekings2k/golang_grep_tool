@@ -70,12 +70,21 @@ func searchFile(fileName, searchTerm string) (bool, error) {
 		}
 	}
 	if !match {
-		fmt.Printf("%s:No matches found.", fileName)
+		fmt.Printf("%s:No matches found.\n", fileName)
 	}
 	if err := scanner.Err(); err != nil {
 		return match, err
 	}
 	return match, nil
+}
+func searchWorker(jobs <-chan string, searchTerm string) {
+	for file := range jobs {
+		_, err := searchFile(file, searchTerm)
+		if err != nil {
+			log.Printf("Error searching in file %s: %v\n", file, err)
+			continue
+		}
+	}
 }
 
 func main() {
@@ -87,14 +96,16 @@ func main() {
 	path := os.Args[2:]
 
 	files := collectFiles(path)
+	jobs := make(chan string)
+
+	numOfWorker := 4
+	for i := 0; i < numOfWorker; i++ {
+		go searchWorker(jobs, searchTerm)
+	}
 
 	for _, file := range files {
-
-		_, err := searchFile(file, searchTerm)
-		if err != nil {
-			log.Printf("Error searching in file %s: %v\n", file, err)
-			continue
-		}
+		jobs <- file
 	}
+	close(jobs)
 
 }

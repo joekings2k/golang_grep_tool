@@ -1,0 +1,59 @@
+[INFO] Starting background worker on port 9090
+[INFO] Initializing job scheduler
+[DEBUG] Loading environment variables
+[DEBUG] Environment variables loaded: 42 entries
+[INFO] Database connection established
+[DEBUG] Verifying database schema
+[INFO] Schema validation complete
+[WARNING] CPU usage at 78%
+[DEBUG] Spawning worker threads: count=8
+[INFO] Worker thread pool ready
+[ERROR] Unable to parse environment configuration
+[INFO] Attempting to reload configuration
+[DEBUG] Reading config file from /etc/app/config.yaml
+[INFO] Configuration reloaded successfully
+[DEBUG] Cache warm-up started
+[INFO] Cache layer initialized
+[DEBUG] Processing incoming request id=ab12cd34
+[INFO] Incoming request routed to handler
+[DEBUG] Authenticating request token
+[ERROR] Failed to reach authentication service
+[INFO] Retrying authentication request
+[DEBUG] Authentication retry attempt=1
+[DEBUG] Authentication retry attempt=2
+[INFO] Authentication service responded
+[DEBUG] Processing incoming request id=ef56gh78
+[INFO] New user registered id=4521
+[DEBUG] Writing user record to database
+[INFO] User record saved successfully
+[WARNING] Disk I/O latency is high
+[DEBUG] Monitoring disk read/write operations
+[ERROR] Session token expired
+[INFO] Issuing new session token
+[DEBUG] Token generation successful
+[INFO] Cleaning up temporary files
+[DEBUG] Removing files from /tmp/cache
+[INFO] Temporary files cleared
+[DEBUG] Running scheduled background jobs
+[INFO] Job execution started id=job_001
+[DEBUG] Job progress 25%
+[DEBUG] Job progress 50%
+[DEBUG] Job progress 75%
+[INFO] Job execution completed id=job_001
+[WARNING] Memory usage at 82%
+[DEBUG] Triggering garbage collection
+[INFO] Garbage collection completed
+[ERROR] Timeout while connecting to external API
+[INFO] Retrying external API request
+[DEBUG] External API retry attempt=1
+[DEBUG] External API retry attempt=2
+[INFO] External API response received
+[DEBUG] Parsing API response payload
+[INFO] API response processed successfully
+[DEBUG] Flushing logs to disk
+[INFO] Logs flushed successfully
+[INFO] Worker shutting down
+[DEBUG] Closing database connections
+[INFO] Database connections closed
+[DEBUG] Releasing resources
+[INFO] Shutdown complete
