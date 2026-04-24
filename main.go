@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 )
 
 func contains(s, substr string) bool {
@@ -88,6 +89,7 @@ func searchWorker(jobs <-chan string, searchTerm string) {
 }
 
 func main() {
+	var wg sync.WaitGroup
 	if len(os.Args) < 3 {
 		fmt.Println("Usage: go run main.go <filename> <search term>")
 		return
@@ -99,13 +101,19 @@ func main() {
 	jobs := make(chan string)
 
 	numOfWorker := 4
+	wg.Add(numOfWorker)
 	for i := 0; i < numOfWorker; i++ {
-		go searchWorker(jobs, searchTerm)
+		go func() {
+
+			defer wg.Done()
+			searchWorker(jobs, searchTerm)
+		}()
 	}
 
 	for _, file := range files {
 		jobs <- file
 	}
 	close(jobs)
+	wg.Wait()
 
 }

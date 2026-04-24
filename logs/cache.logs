@@ -1,0 +1,20 @@
+[2026-04-23 08:00:20] CACHE: Redis connection established at localhost:6379
+[2026-04-23 08:00:21] CACHE: Initializing cache with 512MB allocation
+[2026-04-23 08:00:22] CACHE: Loading warm-up data: 15000 entries
+[2026-04-23 08:00:35] CACHE: Warm-up completed in 13 seconds
+[2026-04-23 09:15:30] CACHE HIT: Key 'user:1234' retrieved from cache (age: 342s)
+[2026-04-23 09:15:31] CACHE HIT: Key 'session:abc123' retrieved from cache (age: 15s)
+[2026-04-23 09:15:32] CACHE MISS: Key 'report:monthly' not in cache, fetching from database
+[2026-04-23 09:15:33] CACHE SET: Key 'report:monthly' cached with TTL=3600s
+[2026-04-23 10:30:45] CACHE STATS: Hit rate: 87%, Entries: 14234, Memory: 498MB
+[2026-04-23 11:00:00] CACHE EVICTION: Evicting 1234 expired entries
+[2026-04-23 11:00:15] CACHE EVICTION: Completed in 234ms
+[2026-04-23 12:45:22] CACHE INVALIDATION: Invalidating pattern 'product:*'
+[2026-04-23 12:45:23] CACHE INVALIDATION: Removed 456 matching keys
+[2026-04-23 13:30:10] CACHE OPERATION: Incrementing counter 'api:requests' by 1
+[2026-04-23 13:30:11] CACHE OPERATION: Counter value is now 245671
+[2026-04-23 14:15:45] CACHE CLEANUP: Removing keys older than 24 hours
+[2026-04-23 14:15:50] CACHE CLEANUP: Removed 2341 stale entries
+[2026-04-23 15:00:00] CACHE SNAPSHOT: Writing cache snapshot to disk
+[2026-04-23 15:00:30] CACHE SNAPSHOT: Snapshot written - 8.2GB
+[2026-04-23 16:00:00] CACHE STATS: Total hits: 1234567, Total misses: 189234

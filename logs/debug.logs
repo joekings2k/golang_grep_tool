@@ -1,0 +1,19 @@
+[2026-04-23 08:15:32.123] DEBUG: Entering main initialization routine
+[2026-04-23 08:15:32.234] DEBUG: Command line args parsed: [--config=/etc/app.conf, --verbose, --workers=8]
+[2026-04-23 08:15:32.345] DEBUG: Environment variables loaded: DB_HOST=localhost, DB_PORT=5432
+[2026-04-23 08:15:32.456] DEBUG: Configuration object created with 42 parameters
+[2026-04-23 08:15:32.567] DEBUG: Connection pool initialized - min: 10, max: 50
+[2026-04-23 08:15:32.678] DEBUG: SSL certificate validated successfully
+[2026-04-23 08:15:32.789] DEBUG: Thread local storage initialized
+[2026-04-23 08:15:32.890] DEBUG: Module dependencies resolved: [core, net, db, cache, auth]
+[2026-04-23 09:00:15.123] DEBUG: Request received from 192.168.1.100:54321
+[2026-04-23 09:00:15.234] DEBUG: Request headers: User-Agent: Mozilla/5.0, Accept-Encoding: gzip
+[2026-04-23 09:00:15.345] DEBUG: Request body size: 2048 bytes
+[2026-04-23 09:00:15.456] DEBUG: Routing request to handler: /api/v1/users
+[2026-04-23 09:00:15.567] DEBUG: Authorization header validated
+[2026-04-23 09:00:15.678] DEBUG: Database query prepared: SELECT * FROM users WHERE id=?
+[2026-04-23 09:00:15.789] DEBUG: Query executed in 45ms
+[2026-04-23 09:00:15.890] DEBUG: 156 rows returned from database
+[2026-04-23 09:00:16.001] DEBUG: Response serialized to JSON in 12ms
+[2026-04-23 09:00:16.112] DEBUG: Response sent to client (4096 bytes)
+[2026-04-23 09:00:16.223] DEBUG: Connection closed gracefully

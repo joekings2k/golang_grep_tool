@@ -1,0 +1,19 @@
+[2026-04-23 09:10:22] WARNING: High memory usage detected: 78% of allocated heap
+[2026-04-23 09:10:22] WARNING: Consider increasing JVM heap size
+[2026-04-23 09:15:45] WARNING: Slow query detected: SELECT * FROM users took 2345ms
+[2026-04-23 09:15:45] WARNING: Query string: SELECT * FROM users WHERE created_date > NOW() - INTERVAL 1 DAY
+[2026-04-23 10:22:30] WARNING: API response time exceeds threshold: 1234ms > 1000ms
+[2026-04-23 10:22:30] WARNING: Endpoint: GET /api/v1/reports/generate
+[2026-04-23 11:35:15] WARNING: Connection pool utilization high: 42/50 connections in use
+[2026-04-23 12:00:00] WARNING: Certificate expires in 30 days: /etc/ssl/certs/app.crt
+[2026-04-23 13:45:22] WARNING: Cache hit ratio degraded: 62% (expected: >80%)
+[2026-04-23 14:30:10] WARNING: Unusual access pattern detected from 192.168.1.200
+[2026-04-23 14:30:10] WARNING: 5000+ requests in 1 minute detected
+[2026-04-23 15:15:45] WARNING: Database connection pool nearly exhausted
+[2026-04-23 15:16:00] WARNING: Waiting connections in queue: 23
+[2026-04-23 16:20:33] WARNING: Disk space on /var/log is running low: 85% used
+[2026-04-23 17:00:15] WARNING: Deprecated API endpoint '/api/legacy/users' still in use
+[2026-04-23 17:00:15] WARNING: Clients should migrate to '/api/v2/users'
+[2026-04-23 18:45:22] WARNING: Configuration file has been modified externally
+[2026-04-23 19:30:10] WARNING: Retry attempt 2/3 for failed batch job
+[2026-04-23 20:15:45] WARNING: Service restart scheduled in 2 hours

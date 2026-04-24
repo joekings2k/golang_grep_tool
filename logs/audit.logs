@@ -1,0 +1,20 @@
+[2026-04-23 12:30:15] AUDIT: User jonathan@example.com logged in from 192.168.1.100
+[2026-04-23 12:30:16] AUDIT: Session created: sess_a1b2c3d4e5f6
+[2026-04-23 12:35:22] AUDIT: User jonathan@example.com accessed /api/v1/admin/users
+[2026-04-23 12:35:23] AUDIT: Permission check: ADMIN role verified
+[2026-04-23 12:36:45] AUDIT: User jonathan@example.com modified user record: user_id=5678
+[2026-04-23 12:36:46] AUDIT: Changes: email=new.email@example.com, role=MANAGER
+[2026-04-23 13:00:30] AUDIT: User admin@example.com deleted user: user_id=9999
+[2026-04-23 13:00:31] AUDIT: Reason: Account suspension
+[2026-04-23 13:45:10] AUDIT: Configuration change by admin@example.com
+[2026-04-23 13:45:11] AUDIT: Changed setting: max_api_rate_limit from 1000 to 5000
+[2026-04-23 14:20:15] AUDIT: User sarah@example.com uploaded file: report_q2_2026.xlsx
+[2026-04-23 14:20:16] AUDIT: File size: 2.3MB, Content-Type: application/xlsx
+[2026-04-23 15:00:45] AUDIT: Batch operation executed by system service
+[2026-04-23 15:00:46] AUDIT: Processed 5234 records in batch job
+[2026-04-23 16:30:22] AUDIT: User jonathan@example.com logged out
+[2026-04-23 16:30:23] AUDIT: Session ended: sess_a1b2c3d4e5f6
+[2026-04-23 17:15:10] AUDIT: Failed login attempt for user test@example.com from 10.0.0.99
+[2026-04-23 17:15:11] AUDIT: Reason: Invalid password (attempt 1/3)
+[2026-04-23 18:00:00] AUDIT REPORT: Generated daily audit summary
+[2026-04-23 18:00:01] AUDIT REPORT: Total events: 2341, Sensitive operations: 23
