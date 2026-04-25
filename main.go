@@ -10,6 +10,12 @@ import (
 	"sync"
 )
 
+type result struct {
+	fileName   string
+	lineNumber int
+	line       string
+}
+
 func contains(s, substr string) bool {
 	return strings.Contains(s, substr)
 }
@@ -47,7 +53,7 @@ func collectFiles(path []string) []string {
 	}
 	return files
 }
-func searchFile(fileName, searchTerm string) (bool, error) {
+func searchFile(fileName, searchTerm string, results chan result) (bool, error) {
 	match := false
 	lineNumber := 0
 	file, err := os.Open(fileName)
@@ -56,31 +62,30 @@ func searchFile(fileName, searchTerm string) (bool, error) {
 	}
 
 	defer file.Close()
-	searchTerm = strings.ToLower(searchTerm)
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
-		originalLline := line
+		originalLine := line
 		lineNumber++
 		line = strings.ToLower(line)
 
 		if contains(line, searchTerm) {
-			fmt.Printf("%s:%d: %s\n", fileName, lineNumber, originalLline)
+			results <- result{fileName: fileName, lineNumber: lineNumber, line: originalLine}
 			match = true
 		}
 	}
 	if !match {
-		fmt.Printf("%s:No matches found.\n", fileName)
+
 	}
 	if err := scanner.Err(); err != nil {
 		return match, err
 	}
 	return match, nil
 }
-func searchWorker(jobs <-chan string, searchTerm string) {
+func searchWorker(jobs <-chan string, searchTerm string, results chan result) {
 	for file := range jobs {
-		_, err := searchFile(file, searchTerm)
+		_, err := searchFile(file, searchTerm, results)
 		if err != nil {
 			log.Printf("Error searching in file %s: %v\n", file, err)
 			continue
@@ -94,19 +99,21 @@ func main() {
 		fmt.Println("Usage: go run main.go <filename> <search term>")
 		return
 	}
-	searchTerm := os.Args[1]
+	searchTerm := strings.ToLower(os.Args[1])
 	path := os.Args[2:]
 
 	files := collectFiles(path)
 	jobs := make(chan string)
+	results := make(chan result)
 
 	numOfWorker := 4
 	wg.Add(numOfWorker)
+
 	for i := 0; i < numOfWorker; i++ {
 		go func() {
 
 			defer wg.Done()
-			searchWorker(jobs, searchTerm)
+			searchWorker(jobs, searchTerm, results)
 		}()
 	}
 
@@ -114,6 +121,13 @@ func main() {
 		jobs <- file
 	}
 	close(jobs)
-	wg.Wait()
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+
+	for r := range results {
+		fmt.Printf("%s:%d: %s\n", r.fileName, r.lineNumber, r.line)
+	}
 
 }
